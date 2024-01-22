@@ -5,12 +5,12 @@ from dotenv import load_dotenv
 from app.engine.constants import DATA_DIR, STORAGE_DIR
 from app.engine.context import create_service_context
 
-load_dotenv()
-
 from llama_index import (
     SimpleDirectoryReader,
     VectorStoreIndex,
 )
+
+load_dotenv()
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger()
