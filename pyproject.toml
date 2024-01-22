@@ -8,14 +8,19 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.11,<3.12"
 fastapi = "^0.104.1"
-uvicorn = { extras = ["standard"], version = "^0.23.2" }
-llama-index = "^0.9.19"
 pypdf = "^3.17.0"
 python-dotenv = "^1.0.0"
 tonic-validate = "^2.1.1"
 pytest = "^7.4.4"
 requests = "^2.31.0"
 
+[tool.poetry.dependencies.uvicorn]
+extras = [ "standard" ]
+version = "^0.23.2"
+
+[tool.poetry.dependencies.llama-index]
+version = "^0.9.19"
+extras = [ "postgres" ]
 
 [build-system]
 requires = ["poetry-core"]
