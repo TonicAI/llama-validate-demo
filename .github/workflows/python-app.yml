@@ -30,7 +30,7 @@ jobs:
         poetry config virtualenvs.create false
         poetry install --no-root --no-dev --no-directory
     - name: Set PYTHONPATH
-      run: echo "PYTHONPATH=$PYTHONPATH:$GITHUB_WORKSPACE" >> $GITHUB_ENV
+      run: echo "PYTHONPATH=$GITHUB_WORKSPACE" >> $GITHUB_ENV
     - name: Set up vector index
       run: |
         python -c "import sys; print('\n'.join(sys.path))"
