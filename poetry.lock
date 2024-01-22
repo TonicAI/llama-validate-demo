@@ -1628,6 +1628,21 @@ requests = ">=2.26.0"
 blobfile = ["blobfile (>=2)"]
 
 [[package]]
+name = "tonic-validate"
+version = "2.1.1"
+description = "RAG evaluation metrics."
+optional = false
+python-versions = ">=3.8.1,<4.0.0"
+files = [
+    {file = "tonic_validate-2.1.1-py3-none-any.whl", hash = "sha256:eab843896221ae4e51eb0ddc6dcac77c66786196eab3aa720ab2856e4099300c"},
+    {file = "tonic_validate-2.1.1.tar.gz", hash = "sha256:6bfc4f1685b01b38aba044f17f8715900ae6306a2261797b95b8060940f7dddd"},
+]
+
+[package.dependencies]
+openai = ">=1.0.0"
+pandas = ">=1.2.3"
+
+[[package]]
 name = "tqdm"
 version = "4.66.1"
 description = "Fast, Extensible Progress Meter"
@@ -2122,4 +2137,4 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11,<3.12"
-content-hash = "bab43ced4c27348c0e7a1d7b8a360bb36076b4fdc420e40566288efc3bf84ca9"
+content-hash = "5f8a217d297c05f90e5b94dcf4c469c17713996e0dbb417c34f68de5ae7caa6d"
