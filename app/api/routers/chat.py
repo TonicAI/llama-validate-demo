@@ -13,6 +13,7 @@ chat_router = r = APIRouter()
 class _Message(BaseModel):
     role: MessageRole
     content: str
+    context: List[str] | None = None
 
 
 class _ChatData(BaseModel):
@@ -21,6 +22,7 @@ class _ChatData(BaseModel):
 
 class _Result(BaseModel):
     result: _Message
+    
 
 
 @r.post("")
@@ -52,5 +54,9 @@ async def chat(
     # query chat engine
     response = await chat_engine.achat(lastMessage.content, messages)
     return _Result(
-        result=_Message(role=MessageRole.ASSISTANT, content=response.response)
+        result=_Message(
+            role=MessageRole.ASSISTANT,
+            content=response.response,
+            context=[x.text for x in response.source_nodes]
+        )
     )
