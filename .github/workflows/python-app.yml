@@ -16,6 +16,7 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
+    environment: Actions
 
     steps:
     - uses: actions/checkout@v3
@@ -33,7 +34,6 @@ jobs:
       run: echo "PYTHONPATH=$GITHUB_WORKSPACE" >> $GITHUB_ENV
     - name: Set up vector index
       run: |
-        python -c "import sys; print('\n'.join(sys.path))"
         python app/engine/generate.py
     - name: Start up test server
       run: |
