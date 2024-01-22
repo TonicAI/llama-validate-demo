@@ -31,9 +31,8 @@ jobs:
         poetry install --no-root --no-dev --no-directory
     - name: Set up vector index
       run: |
-        pwd
-        ls
-        python ./app/engine/generate.py
+        python -c "import os; print(os.getcwd())"
+        python app/engine/generate.py
     - name: Start up test server
       run: |
         python main.py
