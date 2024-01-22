@@ -29,8 +29,9 @@ jobs:
         pip install poetry
         poetry config virtualenvs.create false
         poetry install --no-root --no-dev --no-directory
+    - name: Set PYTHONPATH
+      run: echo "PYTHONPATH=$GITHUB_WORKSPACE" >> $GITHUB_ENV
     - name: Set up vector index
-      working-directory: ./llama-validate-demo
       run: |
         python -c "import sys; print('\n'.join(sys.path))"
         python app/engine/generate.py
