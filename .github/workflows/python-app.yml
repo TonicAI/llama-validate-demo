@@ -30,6 +30,7 @@ jobs:
         poetry config virtualenvs.create false
         poetry install --no-root --no-dev --no-directory
     - name: Set up vector index
+      working-directory: ./llama-validate-demo
       run: |
         python -c "import sys; print('\n'.join(sys.path))"
         python app/engine/generate.py
