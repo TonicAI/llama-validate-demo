@@ -29,12 +29,11 @@ jobs:
         pip install poetry
         poetry config virtualenvs.create false
         poetry install --no-root --no-dev --no-directory
-    - name: Print current directory
-      run: |
-        pwd
     - name: Set up vector index
       run: |
-        python app/engine/generate.py
+        pwd
+        ls
+        python ./app/engine/generate.py
     - name: Start up test server
       run: |
         python main.py
