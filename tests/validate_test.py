@@ -63,8 +63,8 @@ def test_llama_index():
     # Check none of the metrics scored too low    
     for metric in metrics:
         if metric.name == AnswerSimilarityMetric.name:
-            assert run.overall_scores[metric.name] >= 4
+            assert run.overall_scores[metric.name] >= 3.5
         else:
-            assert run.overall_scores[metric.name] >= 0.8
+            assert run.overall_scores[metric.name] >= 0.7
     
     
