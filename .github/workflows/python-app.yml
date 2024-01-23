@@ -43,6 +43,7 @@ jobs:
         MODEL: gpt-4-1106-preview
       run: |
         python main.py &
+        sleep 10
     - name: Test with pytest
       env:
         OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
