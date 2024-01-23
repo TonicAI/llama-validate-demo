@@ -1,7 +1,7 @@
 import json
 import os
 from tonic_validate import ValidateScorer, Benchmark, LLMResponse, ValidateApi
-from tonic_validate.metrics import AnswerSimilarityMetric, RetrievalPrecisionMetric, AugmentationPrecisionMetric, AugmentationAccuracyMetric, AnswerConsistencyMetric
+from tonic_validate.metrics import AnswerSimilarityMetric, RetrievalPrecisionMetric, AugmentationPrecisionMetric, AnswerConsistencyMetric
 import requests
 
 from dotenv import load_dotenv
@@ -48,8 +48,7 @@ def test_llama_index():
         AnswerSimilarityMetric(),
         RetrievalPrecisionMetric(),
         AugmentationPrecisionMetric(),
-        AnswerConsistencyMetric(),
-        AugmentationAccuracyMetric()
+        AnswerConsistencyMetric()
     ]
     scorer = ValidateScorer(metrics)
     run = scorer.score_run(responses)
