@@ -1,5 +1,6 @@
 import json
 import os
+import pytest
 from tonic_validate import ValidateApi
 from tonic_validate.metrics import AnswerSimilarityMetric, RetrievalPrecisionMetric, AugmentationPrecisionMetric, AnswerConsistencyMetric
 from llama_index.evaluation import TonicValidateEvaluator
@@ -39,7 +40,7 @@ def get_responses(questions):
         context_lists.append(llm_context_list)
     return (llm_answers, context_lists)
 
-def score_run(questions, context_lists, reference_answers, llm_answers):
+async def score_run(questions, context_lists, reference_answers, llm_answers):
     metrics = [
         AnswerSimilarityMetric(),
         RetrievalPrecisionMetric(),
@@ -47,15 +48,16 @@ def score_run(questions, context_lists, reference_answers, llm_answers):
         AnswerConsistencyMetric()
     ]
     scorer = TonicValidateEvaluator(metrics, model_evaluator="gpt-4-1106-preview")
-    run = scorer.evaluate_run(
+    run = await scorer.aevaluate_run(
         questions, context_lists, reference_answers, llm_answers
     )
     return run, metrics
 
-def test_llama_index():
+@pytest.mark.asyncio
+async def test_llama_index():
     questions, reference_answers = get_q_and_a()
     llm_answers, context_lists = get_responses(questions)
-    run, metrics = score_run(questions, context_lists, reference_answers, llm_answers)
+    run, metrics = await score_run(questions, context_lists, reference_answers, llm_answers)
     # Upload results to web ui
     validate_api = ValidateApi()
     # Get project id from env
