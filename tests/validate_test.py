@@ -59,10 +59,10 @@ async def test_llama_index():
     llm_answers, context_lists = get_responses(questions)
     run, metrics = await score_run(questions, context_lists, reference_answers, llm_answers)
     # Upload results to web ui
-    validate_api = ValidateApi()
+    # validate_api = ValidateApi()
     # Get project id from env
-    project_id = os.getenv("PROJECT_ID")
-    validate_api.upload_run(project_id, run)
+    # project_id = os.getenv("PROJECT_ID")
+    # validate_api.upload_run(project_id, run)
 
     # Check none of the metrics scored too low    
     for metric in metrics:
