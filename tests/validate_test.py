@@ -48,7 +48,7 @@ def score_run(questions, context_lists, reference_answers, llm_answers):
     ]
     scorer = TonicValidateEvaluator(metrics, model_evaluator="gpt-4-1106-preview")
     run = scorer.evaluate_run(
-        questions, context_lists, reference_answers, llm_answers
+        questions, llm_answers, context_lists, reference_answers
     )
     return run, metrics
 
