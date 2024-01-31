@@ -1,3 +1,6 @@
+## Tonic Validate
+Tonic Validate is a platform for Retrieval Augmented Generation (RAG) development and experiment tracking. To check it out, go to our repo [here](https://github.com/TonicAI/tonic_validate)
+
 This is a [LlamaIndex](https://www.llamaindex.ai/) project using [FastAPI](https://fastapi.tiangolo.com/) bootstrapped with [`create-llama`](https://github.com/run-llama/LlamaIndexTS/tree/main/packages/create-llama).
 
 ## Getting Started
